@@ -4,11 +4,11 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container">
+      <!-- <div class="container">
         <a class="navbar-brand" href="#">
           <img src=""./assets/logo2.png"" alt="" width="80" height="48">
         </a>
-      </div>
+      </div> -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link to="/HomePage" class="nav-link active" aria-current="page">Inicio</router-link>
