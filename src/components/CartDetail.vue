@@ -8,6 +8,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
+        <button class="actualizar" @click="escribirProducto()"></button>
         <table class="table table-bordered">
                 <thead class=" table-success">
                 <tr>
@@ -18,11 +19,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
+                    <tr v-for="carro in carrito" :key="carro.nombre">
+                        <td>{{carro.nombre}}</td>
+                        <td>{{ carro.cantidad }}</td>
+                        <td>{{carro.precio}}</td>
+                        <td>mod</td>
                     </tr>
                 </tbody>
                 </table>
@@ -42,10 +43,33 @@
 <script>
     export default {
         name: "CartDetail",
-        methods: {
-        }
-    }
+        data: function(){{
+            
+                return{
+                carrito:[],
+                errorMessage: 'mal'
+                };
+                }
+            },}
+        // created() {
+        //     window.addEventListener('storage', this.handleLocalStorageChange);
+        //     },
+        // beforeDestroy() {
+        //     window.removeEventListener('storage', this.handleLocalStorageChange);
+        // }}
+        // methods: {
+        //     handleLocalStorageChange(event) {
+        //         if (event.key === 'recibe') {
+        //             this.carrito.push(JSON.parse(localStorage.getItem("recibe")));
+        //         }
+        //     }
+        //     };
 </script>
+            <!-- // escribirProducto(){
+            //     let objeto = JSON.parse(localStorage.getItem("recibe"));
+            //     this.carrito.push(objeto);
+            //     console.log(this.carrito);
+            // } -->
 <style scoped>
     .summary{
         text-align: left;
