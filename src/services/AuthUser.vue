@@ -57,6 +57,7 @@
                     // window.location.href = '/inicio'
                 } else {
                     reject(new Error('Correo electronico o contraseña incorrectos'))
+                    console.log(error);
                 }
         }
         
