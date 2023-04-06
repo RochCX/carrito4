@@ -4,8 +4,10 @@
     <h4 class="mt-4 mb-5"><strong>Productos</strong></h4>
 
     <div class="row">
-      <div class="col-lg-4 col-md-12 mb-4" v-for="caja in productos" :key="caja.nombre">
+      <div class="col-lg-4 col-md-12 mb-4" v-for="caja in productos" :key="caja.id">
         <div class="card" >
+          <button :id=caja.id @click="enviarProducto(caja.id)">Agregar</button>
+          <!-- <p> La id de este producto es {{ caja.id }}</p> -->
           <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
             data-mdb-ripple-color="light">
             <img :src="caja.imagen"
@@ -56,7 +58,13 @@ export default {
     } catch (error) {
       this.errorMessage = error;
     }
-  }
+  },
+  methods:{
+    enviarProducto(id){
+      let busca = this.productos.find(element => element.id == id);
+      localStorage.setItem("recibe", JSON.stringify(busca));
+    }
+  },
 };
 </script>
 

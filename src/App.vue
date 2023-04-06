@@ -1,17 +1,24 @@
 <template>
+  <NavBar />
+  <router-view />
   <h2>Bienvenidos</h2>
   <!-- poner el router-view? -->
+  <CartDetail/>
   <HomePage/>
 
 </template>
 
 <script>
 import HomePage from "@/Home.vue"
+import CartDetail from "./components/CartDetail.vue"
+import NavBar from "./components/NavBar";
 
 export default {
   name: 'App',
   components: {
-    HomePage
+    HomePage,
+    CartDetail,
+    NavBar
   },
   methods:{
   }
