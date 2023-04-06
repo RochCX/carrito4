@@ -1,5 +1,5 @@
-{ 
-    "productos": [ 
+export class Productos{ 
+    static products= [ 
         {
         "imagen": "./img/p01.jpg",
         "nombre": "Futón Clásico",
@@ -119,7 +119,11 @@
         "categoria": "",
         "etiqueta":""
     }
-    ]
+    ];
+
+    static getAllProducts(){
+        return this.products;
+    }
 }
 
 
