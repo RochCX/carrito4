@@ -44,14 +44,10 @@
         };
     },
     methods: {
-
-
-
         login() {
             return new Promise((resolve, reject) => {
                 if (this.correo === 'usuario1@mitienda.com' && this.contrasena === 'password') {
-                try{
-                  const user = {
+                    const user = {
                         nombre: 'Telovendo',
                         correo: this.correo,
                     };
@@ -59,13 +55,14 @@
                     console.log(user);
                     this.isLoggedIn = true;
                     // window.location.href = '/inicio'
+                } else {
                     reject(new Error('Correo electronico o contraseña incorrectos'))
                 }
-                catch(Error){
-                  
-                  console.log("error");
-                }
-        }});         
+        }
+        
+        
+        
+        );         
         },
         
         logout: function() {
