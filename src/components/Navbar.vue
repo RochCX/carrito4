@@ -22,7 +22,9 @@
           </ul>
           <form class="d-flex" role="search">
             <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-            <button style="margin-right: 20px;" class="btn btn-outline-dark" type="submit">Carrito</button>
+            <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Carrito</button>
+    
+
           </form>
         </div>
     </nav>
@@ -31,6 +33,8 @@
 
 <script>
 import { RouterLink } from 'vue-router'
+
+
 export default {
   components: {
     RouterLink,

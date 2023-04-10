@@ -1,6 +1,5 @@
 <template>
     
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Carrito</button>
     
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
@@ -41,29 +40,48 @@
 </template>
       
 <script>
+
     export default {
-        name: "CartDetail",
-        data: function(){{
-            
-                return{
-                carrito:[],
-                errorMessage: 'mal'
-                };
-                }
-            },}
-        // created() {
-        //     window.addEventListener('storage', this.handleLocalStorageChange);
-        //     },
-        // beforeDestroy() {
-        //     window.removeEventListener('storage', this.handleLocalStorageChange);
-        // }}
-        // methods: {
-        //     handleLocalStorageChange(event) {
-        //         if (event.key === 'recibe') {
-        //             this.carrito.push(JSON.parse(localStorage.getItem("recibe")));
-        //         }
-        //     }
-        //     };
+    data: function() {
+    return {
+        newProducts:[]
+        };
+    },
+    Methods:{
+        agregarProducto: function (producto) {
+            let existe = this.newProducts.some((element) => {
+                return producto.id == element.id
+            });
+            console.log(existe)
+            if(!existe){
+                let product ={
+                id:producto.id,
+                name: producto.name,
+                description: producto.description,
+                price: producto.price,
+                stock: producto.stock,
+                image: producto.image,
+                cantidad: 1,
+            }
+            this.newProducts.push(product);
+            }else{
+                this.newProducts = this.newProducts.map((element)=>{
+                    if(element.id === producto.id){
+                        element.cantidad = element.cantidad+1;
+                        return element;
+                    }else{
+                        return element;
+                    }
+                })
+            }
+        },
+        eliminarProducto: function(producto){
+            this.newProducts = this.newProducts.filter((element)=>{ 
+                return element.id != producto.id;
+            })
+        }
+    }
+  }
 </script>
             <!-- // escribirProducto(){
             //     let objeto = JSON.parse(localStorage.getItem("recibe"));
