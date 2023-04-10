@@ -1,35 +1,4 @@
 <template>
-<!-- <div class="container">
-    <div class="row d-flex justify-content-end">
-  <div class="accordion-item col-3">
-      <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">	
-        &#x1F6D2;</button>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            <table class="table table-bordered">
-            <thead class=" table-success">
-            <tr>
-                <th scope="col">Producto</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Valor Total</th>
-                <th scope="col">Modificar</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
-            </tbody>
-
-            </table>
-        </div>
-    </div>
-    </div>
-</div>
-</div> -->
 
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Carrito</button>
 
@@ -48,12 +17,12 @@
                 <th scope="col">Modificar</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody v-for= "cart in newProducts" :key="cart.id">
                 <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
+                    <td>{{cart.name}}</td>
+                    <td>{{cart.cantidad}}</td>
+                    <td>{{cart.price}}</td>
+                    <td><button></button></td>
                 </tr>
             </tbody>
             </table>
@@ -71,8 +40,54 @@
   </template>
   
   <script>
+  import { ProductServices } from "@/services/ProductServices";
+  
   export default {
+    data: function() {
+    return {
+      producto: ProductServices.productAll(),
+      newProducts:[]
+        };
+    },
 
+    Methods:{
+        agregarProducto: function (producto) {
+            let existe = this.newProducts.some((element) => {
+                return producto.id == element.id
+            });
+            console.log(existe)
+            if(!existe){
+                let product ={
+                id:producto.id,
+                name: producto.name,
+                description: producto.description,
+                price: producto.price,
+                stock: producto.stock,
+                image: producto.image,
+                cantidad: 1,
+            }
+
+            this.newProducts.push(product);
+
+            }else{
+                this.newProducts = this.newProducts.map((element)=>{
+                    if(element.id === producto.id){
+                        element.cantidad = element.cantidad+1;
+                        return element;
+                    }else{
+                        return element;
+                    }
+                })
+            }
+        },
+
+        eliminarProducto: function(producto){
+            this.newProducts = this.newProducts.filter((element)=>{ 
+                return element.id != producto.id;
+            })
+        }
+
+    }
   }
   </script>
   
