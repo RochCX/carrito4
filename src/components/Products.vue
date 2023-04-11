@@ -21,6 +21,7 @@
 
 <script >
 import {ProductService} from "../services/ProductService"
+import ShowProducts from "./ShowProducts.vue"; 
 
 export default {
   data: function(){
@@ -41,13 +42,14 @@ export default {
   methods:{
     
     agregarProducto: function (producto){
-      const productosParaCarrito = JSON.parse(JSON.stringify(this.productos));
-      const carrito = JSON.parse(JSON.stringify(this.newProductos));
-      console.log(productosParaCarrito)
-      let fila = productosParaCarrito.map(e => e.id).indexOf(producto);
-      this.newProductos.push(productosParaCarrito[fila]);
-      console.log("carrito");
-      console.log(carrito);
+      // const productosParaCarrito = JSON.parse(JSON.stringify(this.productos));
+      // const carrito = JSON.parse(JSON.stringify(this.newProductos));
+      // console.log(productosParaCarrito)
+      // let fila = productosParaCarrito.map(e => e.id).indexOf(producto);
+      // this.newProductos.push(productosParaCarrito[fila]);
+      // console.log("carrito");
+      // console.log(carrito);
+      console.log("hola")
 
       // let fila = this.productos.map(e => e.id).indexOf(producto);
 

@@ -18,9 +18,9 @@
                 <tbody>
                     <tr v-for="carro in carrito" :key="carro.cantidad">
                         <td>{{carro.nombre}}</td>
-                        <td>{{carro.cantidad}}</td>
+                        <td>{{carro.valor}}</td>
                         <td>{{carro.precio}}</td>
-                        <td>mod</td>
+                        <td>botones</td>
                     </tr>
                 </tbody>
                 </table>
@@ -40,15 +40,26 @@
 
 <script >
 
+import {mapState} from 'vuex'
+
 export default {
 data(){
     return{
         productos: [],
-        carrito:  []
+    //     carrito:  [
+    //         {nombre: "silla", valor: "1233", precio: "qwe"},
+    //         {nombre: "silla", valor: "1233", precio: "qwe"},
+    //         {nombre: "silla", valor: "1233", precio: "qwe"}
+    // ]
     };
 },
-    methods:{
+
+computed: {
+    ...mapState(['carrito']),
+    
+  }
+    
 
 }
-}
+
 </script>
