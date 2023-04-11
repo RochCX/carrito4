@@ -1,6 +1,4 @@
-<template>
-    
-    
+<!-- <template>
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasRightLabel">Mi Carrito</h5>
@@ -83,13 +81,13 @@
     }
   }
 </script>
-            <!-- // escribirProducto(){
+            // escribirProducto(){
             //     let objeto = JSON.parse(localStorage.getItem("recibe"));
             //     this.carrito.push(objeto);
             //     console.log(this.carrito);
-            // } -->
+            // } 
 <style scoped>
     .summary{
         text-align: left;
       }
-</style>
+</style> -->

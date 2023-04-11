@@ -1,21 +1,23 @@
 <template>
   <!-- poner el router-view? -->
   <NavBar></NavBar>
-  <CartDetail></CartDetail>
-  <Products/>
+
+  <ShowProducts/>
+  <CarritoCompras/>
 </template>
 
 <script>
-import Products from "@/components/Products.vue"
+import ShowProducts from "@/components/ShowProducts.vue"
 import NavBar from "@/components/NavBar.vue"
-import CartDetail from "@/components/CartDetail.vue"
+import CarritoCompras from "@/components/CarritoCompras.vue"
+
 
 export default {
   name: 'HomePage',
   components: {
     NavBar,
-    CartDetail,
-    Products
+    ShowProducts,
+    CarritoCompras
   }
 }
 </script>

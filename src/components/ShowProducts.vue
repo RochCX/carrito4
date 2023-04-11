@@ -26,7 +26,7 @@ export default {
   data: function(){
     return{
         productos: [],
-        newProductos:  []
+        arrayCarrito:  [],
     };
   },
   created: async function() {
@@ -40,32 +40,13 @@ export default {
   },
   methods:{
     
-    agregarProducto: function (producto){
-      const productosParaCarrito = JSON.parse(JSON.stringify(this.productos));
-      const carrito = JSON.parse(JSON.stringify(this.newProductos));
-      console.log(productosParaCarrito)
-      let fila = productosParaCarrito.map(e => e.id).indexOf(producto);
-      this.newProductos.push(productosParaCarrito[fila]);
-      console.log("carrito");
-      console.log(carrito);
+    agregarProducto(producto){
+      // const productosParaCarrito = JSON.parse(JSON.stringify(this.productos));
+      // let fila = productosParaCarrito.map(    => e.id).indexOf(producto);
+      console.log(producto)
 
-      // let fila = this.productos.map(e => e.id).indexOf(producto);
 
-      // let product ={
-      //           id: this.productos[fila].id,
-      //           name: this.productos[fila].nombre,
-      //           description: this.productos[fila].descripcion,
-      //           price: this.productos[fila].precio,
-      //           // image: producto.image,
-      //           cantidad: 1,
-      //       }
-      // this.newProductos.push(product); 
- 
     }
-
-
-
-
     }
   }
 
